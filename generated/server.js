@@ -14,7 +14,10 @@ const cartRouter = require("./routes/cart");
 const profileRouter = require("./routes/profile");
 
 const corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: [
+    "http://localhost:3000",
+    "https://clubhub-client-asherbillinkoff.onrender.com",
+  ],
   methods: ["GET", "POST"],
   credentials: true,
 };
@@ -67,8 +70,8 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app.listen(3001, () => {
-  console.log("Server running on port 3001");
-});
+// app.listen(3001, () => {
+//   console.log("Server running on port 3001");
+// });
 
 module.exports = app;

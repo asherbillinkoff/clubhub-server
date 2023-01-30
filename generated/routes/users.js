@@ -35,11 +35,15 @@ router.post("/register", (req, res) => {
 router.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
+  const loginQuery = "SELECT * FROM users WHERE email = " + `"${email}"`;
 
-  pool.query("SELECT * FROM users WHERE email = ?;", email, (err, result) => {
+  pool.query(loginQuery, (err, result) => {
     if (err) {
       res.send({ err: err });
+      console.log(err);
     }
+
+    console.log(result);
 
     if (result.length > 0) {
       bcrypt.compare(password, result[0].encrypted_pass, (error, response) => {

@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js",
+    "envStart": "nodemon -r dotenv/config ./bin/www",
     "devStart": "nodemon server.js"
   },
   "dependencies": {
